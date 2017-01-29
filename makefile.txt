@@ -1,0 +1,21 @@
+INPUTFILE=input.txt
+OUTPUTFILE=TSPOutput.txt 
+JFLAGS = -g
+JC = javac
+RM=rm
+VI=vi
+JVM=java
+MAIN = TSPProblem
+.SUFFIXES: .java .class
+.java.class:
+	$(JC) $*.java
+	$(JVM) $(MAIN) $(INPUTFILE) $(OUTPUTFILE)
+	$(RM) $(MAIN).class
+	$(VI) $(OUTPUTFILE)
+
+CLASSES = \
+	TSPProblem.java \
+
+classes: $(CLASSES:.java=.class)
+
+default : class
